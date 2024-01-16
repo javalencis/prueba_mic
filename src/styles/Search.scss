@@ -1,4 +1,4 @@
-.Search{
+.Search-desktop{
     color: #ffffff;
     border-bottom: 1px solid #ffffff;
     font-size: 12px;
@@ -17,4 +17,16 @@
         height: 15px;
     }
     cursor: pointer;
+}
+
+.Search-tablet{
+    p{
+        display: none;
+    }
+    img{
+        width: 15px;
+        height: 15px;
+    }
+    cursor: pointer;
+ 
 }

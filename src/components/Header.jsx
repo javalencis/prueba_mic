@@ -1,4 +1,4 @@
-
+import iconMenu from '../assets/icons/hamburguer.svg'
 import { Elements } from './Elements'
 import { Logo } from './Logo'
 import { Navigation } from './Navigation'
@@ -8,9 +8,13 @@ export const Header = () => {
   return (
     <header className="Header">
         <div className='Hd-container'>
+            <div className='Hd-MenuBurguer'>           
+              <img src={iconMenu} alt="Icono menu lateral" />
+              <Search view ={"tablet"}/>
+            </div>
             <Logo/>
             <Navigation/>
-            <Search/>
+            <Search view="desktop"/>
             <Elements/>
         </div>
     </header>

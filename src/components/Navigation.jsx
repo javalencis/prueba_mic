@@ -1,9 +1,13 @@
 import '../styles/Navigation.scss'
+import { Menu } from './Menu'
 export const Navigation = () => {
     return (
         <nav className='Navigation'>
             <ul>
-                <li><p>MUJER</p></li>
+                <li className='MenuWomen'>
+                    <p>MUJER</p>
+                    <Menu/>
+                </li>
                 <li><p>HOMBRE</p></li>
                 <li><p>NUEVOS<br /><span>lanzamientos</span></p></li>
                 <li className='offers'>

@@ -1,3 +1,4 @@
+@use '../styles/media-queries' as media;
 .Elements{
     ul{
         display: flex;
@@ -15,12 +16,37 @@
             svg{
                 width: 17px;
                 height: 17px;
-                transition: fill 0.5s ease;
+                transition: fill 350ms ease;
             }
             &:hover{
                 svg{
                    
                     fill: #ff3636;
+                }
+            }
+        }
+
+        @include media.mobile{
+            li{
+                &:nth-child(1),
+                &:nth-child(3),
+                &:nth-child(4){
+                    display: none;
+                }
+
+                &:nth-child(2){
+                    position: relative;
+                    span{
+                        position: absolute;
+                        bottom: 0;
+                        left: 8px;
+                        right: 0;
+                        height: 7px;
+                        background-image: url('../assets/icons/heart-icon.svg');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        fill: #ff3636;
+                    }
                 }
             }
         }
