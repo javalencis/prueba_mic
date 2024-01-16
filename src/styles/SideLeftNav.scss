@@ -1,4 +1,5 @@
 @use '../styles/variables' as var;
+@use '../styles/media-queries' as media;
 .SideLeftNav{
     width:85%;
     max-width: 320px;
@@ -10,7 +11,18 @@
     left: 0;
     transition: all 0.2s ease-in-out;
     z-index: 20;
-
+    display: none;
+    &.expanded{
+        transform: translate3d(0%,0px,0px);
+        pointer-events: auto;
+     
+    }
+    &.collapsed{
+        transform: translate3d(-100%,0px,0px);
+        pointer-events: none;
+  
+    }
+   
     li {
         margin-bottom: 24px;
     }
@@ -122,4 +134,53 @@
         }
     }
 
+}
+.Sln-bg{
+    background-color: #03044e50;;
+    position: fixed;
+    top: 0;
+    left:0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+    transition: opacity 0.2s ease-in-out;
+    display: none;
+    &.expanded{
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &.collapsed{
+        opacity: 0;
+        z-index: -999;
+        pointer-events: none;
+    }
+    
+}
+
+@include media.tablet{
+    .SideLeftNav{
+
+        display: block;
+        overflow-y: auto;
+        &::-webkit-scrollbar {
+            width: 5px;
+            height: 3px;
+            background-color: #efefef;
+        }
+
+
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(51, 51, 51, .6);
+            border-radius: 30px;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+        }
+    
+    }
+    .Sln-bg{
+        display: block;
+    }
 }
