@@ -2,9 +2,12 @@ import { useContext } from 'react'
 import '../styles/SideLeftNav.scss'
 import { AppContext } from '../context/AppCOntext'
 export const SideLeftNav = () => {
-    const { openSideLeftMenu, setOpenSideLeftMenu } = useContext(AppContext);
+    const { openSideLeftMenu, setOpenSideLeftMenu, setOpenSideLeftMenuWm} = useContext(AppContext);
     const handleOpenLefMenu = () => {
         setOpenSideLeftMenu(val => !val)
+    }
+    const handleOpenLeftMenuWm = () =>{
+        setOpenSideLeftMenuWm(val=>!val)
     }
     return (
         <>
@@ -17,7 +20,7 @@ export const SideLeftNav = () => {
                 </div>
                 <div className='Sln-menu'>
                     <ul className='Sln-menu--top'>
-                        <li>MUJER</li>
+                        <li onClick={handleOpenLeftMenuWm}>MUJER</li>
                         <li>HOMBRE</li>
                     </ul>
                     <ul className='Sln-menu--center'>

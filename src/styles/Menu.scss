@@ -1,3 +1,4 @@
+@use './variables' as var;
 .Menu {
     display: none;
     width: 800px;
@@ -21,7 +22,7 @@
             letter-spacing: 0.4rem;
             text-transform: uppercase;
             font-weight: 600;
-            color:#ea0029;
+            color:var.$secondary-color;
         }
         p{
             font-size: 12px;
@@ -47,7 +48,7 @@
                 width: 80px;
                 display: block;
                 height: 2px;
-                background-color: #ea0029;
+                background-color: var.$secondary-color;
                 transform-origin: left 100%;
                 transform: scaleX(0);
                 transition: all 0.5s ease;
