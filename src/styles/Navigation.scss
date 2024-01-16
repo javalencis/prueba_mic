@@ -1,0 +1,63 @@
+.Navigation{
+    flex-grow: 0.8;
+
+    ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 64px;
+        
+        li{
+            position: relative;
+            flex-grow: 1;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-bottom: 2px;
+            p{
+                cursor: pointer;
+                color: #ffffff;
+                letter-spacing: .4em;
+                font-size: 12px;
+                line-height: 15px;
+                font-weight: 600;
+                
+                span{
+                    letter-spacing: .07em;
+                    color: #c6c6ca;
+                    font-weight: 400;
+                    position: absolute;
+                    font-size: .75rem;
+                    
+                }
+            }
+            &:hover::after {
+                content: "";
+                position: absolute;
+                bottom: 4px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                height: 7px;
+                width: 37px;
+                background-image: url(https://moviesshopco.vtexassets.com/assets/vtex/assets-builder/moviesshopco.theme3/3.0.40/decorative-dots___cc9527b9961c8f501808eb86562dbbb3.svg);
+                background-size: contain;
+                background-repeat: no-repeat
+            }
+        }
+        .offers{
+
+            img{
+
+                height: 10px;
+
+                position: absolute;
+                top:10px
+            }
+            
+        }
+    }
+
+}

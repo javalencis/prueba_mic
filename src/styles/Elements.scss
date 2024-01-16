@@ -1,0 +1,28 @@
+.Elements{
+    ul{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        li{
+            cursor: pointer;
+            padding-right: 18px;
+            img{
+                width: 17px;
+                height: 17px;
+            }
+        }
+        .wishList{
+            svg{
+                width: 17px;
+                height: 17px;
+                transition: fill 0.5s ease;
+            }
+            &:hover{
+                svg{
+                   
+                    fill: #ff3636;
+                }
+            }
+        }
+    }
+}
