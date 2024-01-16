@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Header } from './components/Header'
+import { SideLeftNav } from './components/SideLeftNav'
 
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
   return (
     <>
       <Header/>
+      <SideLeftNav/>
     </>
   )
 }
