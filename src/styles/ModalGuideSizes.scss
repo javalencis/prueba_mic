@@ -1,0 +1,53 @@
+@use './media-queries' as media;
+.ModalGuideSizes {
+    width: 80%;
+    max-width: 780px;
+    max-height: 75%;
+    overflow-y: scroll;
+    position: relative;
+
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        border: none;
+        background: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    img {
+        width: 100%;
+        object-fit: contain;
+        object-position: initial;
+    }
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        height: 3px;
+        background-color: #efefef;
+    }
+
+
+    &::-webkit-scrollbar-thumb{
+        background-color: rgba(51, 51, 51, .6);
+        border-radius: 30px;
+        position: absolute;
+        top: 0;
+        right: 0;
+
+    }
+}
+@include media.tablet{
+    .ModalGuideSizes {
+        width: 90%;
+        height: auto;
+    }
+}
+
+@include media.mobile{
+    .ModalGuideSizes {
+     
+        overflow-y: hidden;
+    }
+}

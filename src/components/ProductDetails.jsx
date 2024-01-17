@@ -1,12 +1,22 @@
 import { useState } from 'react'
 import '../styles/ProductDetails.scss'
-export const ProductDetails = ({ product }) => {
+export const ProductDetails = ({ product,openModal }) => {
     const [selectedSize, setSelectedSize] = useState(0)
     const [selectedAmount, setSelectedAmount] = useState(product.sizes[0].amount)
+    const [isActive, setIsActive] = useState(false)
     const handleSelectedSize = (e) =>{
+        const index = parseInt(e.target.id)
+        if(index === selectedSize){
 
-        setSelectedSize(parseInt(e.target.id))
-        setSelectedAmount(product.sizes[parseInt(e.target.id)].amount)
+            setIsActive(v=>!v)
+        }else{
+            setIsActive(true)
+        }
+        setSelectedSize(index)
+        setSelectedAmount(product.sizes[index].amount)
+    }
+    const handleOpenModal = () =>{
+        openModal(e=>!e)
     }
     return (
         <section className="ProductDetails">
@@ -43,7 +53,7 @@ export const ProductDetails = ({ product }) => {
                                     key={index}
                                     id={index}
                                     onClick={handleSelectedSize}
-                                    className={selectedSize === index ? 'active':''}
+                                    className={isActive ? (selectedSize === index ? 'active':'' ):''}
                                 >
                                     {value.size}
                                 </li>
@@ -51,7 +61,7 @@ export const ProductDetails = ({ product }) => {
                         }
                     </ul>
 
-                    <button className='guide'>
+                    <button className='guide' onClick={handleOpenModal}>
                         Guía de tallas
                     </button>
                 </div>
