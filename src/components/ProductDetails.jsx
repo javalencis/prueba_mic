@@ -1,23 +1,61 @@
 import { useState } from 'react'
 import '../styles/ProductDetails.scss'
-export const ProductDetails = ({ product,openModal }) => {
+export const ProductDetails = ({ product, openModal }) => {
     const [selectedSize, setSelectedSize] = useState(0)
     const [selectedAmount, setSelectedAmount] = useState(product.sizes[0].amount)
     const [isActive, setIsActive] = useState(false)
-    const handleSelectedSize = (e) =>{
+    const [amount, setAmount] = useState(1)
+    const handleSelectedSize = (e) => {
         const index = parseInt(e.target.id)
-        if(index === selectedSize){
+        if (index === selectedSize) {
 
-            setIsActive(v=>!v)
-        }else{
+            setIsActive(v => !v)
+        } else {
             setIsActive(true)
         }
+        if(amount >=product.sizes[index].amount){
+            setAmount(product.sizes[index].amount)
+        }
+     
         setSelectedSize(index)
         setSelectedAmount(product.sizes[index].amount)
     }
-    const handleOpenModal = () =>{
-        openModal(e=>!e)
+    const handleOpenModal = () => {
+        openModal(e => !e)
     }
+
+    const handleChangeAmount = (e) => {
+        let value = (e.target.value)
+       
+        if (/^\d*$/.test(value)) {
+            value= (Number(value))
+            if (value < 1) {
+                setAmount('')
+            } else if (value >= selectedAmount) {
+                setAmount(selectedAmount)
+            } else {
+                setAmount(value)
+            }
+        }else{
+            setAmount('')
+        }
+        // const value  = Number(e.target.value)
+        
+    }
+    const handleBlurInput = () =>{
+        if(amount===''){
+            setAmount(1)
+        }
+    }
+
+    const subAmount = () =>{
+        setAmount(c => c > 1 ? c - 1 : 1)
+    }
+    
+    const addAmount = () => {
+        setAmount(c => c < selectedAmount ? c + 1 : c)
+    }
+
     return (
         <section className="ProductDetails">
             <div className='pd-container'>
@@ -53,7 +91,7 @@ export const ProductDetails = ({ product,openModal }) => {
                                     key={index}
                                     id={index}
                                     onClick={handleSelectedSize}
-                                    className={isActive ? (selectedSize === index ? 'active':'' ):''}
+                                    className={isActive ? (selectedSize === index ? 'active' : '') : ''}
                                 >
                                     {value.size}
                                 </li>
@@ -65,6 +103,22 @@ export const ProductDetails = ({ product,openModal }) => {
                         Guía de tallas
                     </button>
                 </div>
+                <div className='pd-amount-add'>
+                    <div className='amount'>
+                        <button onClick={subAmount}> - </button>
+                        <input 
+                            type="text" 
+                            value={amount } 
+                            onChange={handleChangeAmount}
+                            onBlur={handleBlurInput}
+                            />
+                        <button onClick={addAmount}> + </button>
+                    </div>
+                    <button className='bt-addCart'>
+                        AGREGAR A MI BOLSA
+                    </button>
+                </div>
+
             </div>
         </section>
     )

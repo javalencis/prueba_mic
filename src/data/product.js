@@ -4,7 +4,7 @@ const product = {
     subtitle: "NASA",
     price: 249990,
     discountRate: null,
-    sizes: [{ size: "S", amount: 6 }, { size: "M", amount: 3 }, { size: "L", amount: 5 }, { size: "XL", amount: 5 }],
+    sizes: [{ size: "S", amount: 20 }, { size: "M", amount: 3 }, { size: "L", amount: 5 }, { size: "XL", amount: 5 }],
     amount: 14,
     sizeguide: "https://www.moviesshop.co/arquivos/guia_de_tallas_movies_2023.png",
     images: [
