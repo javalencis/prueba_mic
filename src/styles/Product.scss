@@ -1,0 +1,14 @@
+.Product{
+    width: 100%;
+    margin-top: 64px;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 64px);
+    .ProductLeft{
+        width: 60%;
+
+    }
+    .ProductDetails{
+        width: 40%;
+    }
+}
