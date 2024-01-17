@@ -4,6 +4,10 @@ export const currencyFormat = (number) =>{
     return formattedNumber
 }
 
+export const priceWithDiscount = (price, discount) => {
+    return price * (100 - discount) / 100
+}
+
 export const getSubtotalCart = (cart) => {
     let sum = 0;
     for (let i = 0; i < cart.length; i++) {

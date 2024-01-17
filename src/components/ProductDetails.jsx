@@ -1,8 +1,10 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import '../styles/ProductDetails.scss'
 import { InfoToggle } from './InfoToggle'
-import { currencyFormat } from '../helpers/functions'
+import { addItemCart, currencyFormat } from '../helpers/functions'
+import { AppContext } from '../context/AppCOntext'
 export const ProductDetails = ({ product, openModal }) => {
+    const {setShoppingCart,addedItem,setAddedItem} = useContext(AppContext)
     const [selectedSize, setSelectedSize] = useState(0)
     const [selectedAmount, setSelectedAmount] = useState(product.sizes[0].amount)
     const [isActive, setIsActive] = useState(false)
@@ -59,6 +61,21 @@ export const ProductDetails = ({ product, openModal }) => {
         setAmount(c => c < selectedAmount ? c + 1 : c)
     }
 
+    const handleAddItem = () =>{
+        if(isActive){
+            const newItem = {
+                reference:product.id +'-'+product.sizes[selectedSize].size,
+                amount,
+                product
+
+            }
+            
+            setShoppingCart(cart => addItemCart(cart,newItem))
+            if(!addedItem){
+                setAddedItem(true)
+            }
+        }
+    }
 
     return (
         <section className="ProductDetails">
@@ -119,7 +136,7 @@ export const ProductDetails = ({ product, openModal }) => {
                         />
                         <button onClick={addAmount}> + </button>
                     </div>
-                    <button className='bt-addCart'>
+                    <button className='bt-addCart' onClick={handleAddItem}>
                         AGREGAR A MI BOLSA
                     </button>
                 </div>

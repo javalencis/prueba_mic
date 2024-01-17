@@ -9,6 +9,7 @@ export const AppProvider = ({children}) => {
     const [openSideLeftMenuWm, setOpenSideLeftMenuWm] = useState(false)
     const [shoppingCart, setShoppingCart] = useState([])
     const [openShoppingCart, setOpenShoppingCart] = useState(false)
+    const [addedItem, setAddedItem] = useState(false)
     return (
         <AppContext.Provider
             value={{
@@ -19,7 +20,9 @@ export const AppProvider = ({children}) => {
                 shoppingCart,
                 setShoppingCart,
                 openShoppingCart,
-                setOpenShoppingCart
+                setOpenShoppingCart,
+                addedItem,
+                setAddedItem
             }}
         >
             {children}

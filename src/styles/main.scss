@@ -7,10 +7,14 @@
     box-sizing: border-box;
 }
 
+#root{
+    position: relative;
+}
 body{
     font-family: variables.$font;
     font-weight: 400;
     font-style: normal;
+ 
     &::-webkit-scrollbar {
         width: 5px;
         height: 2px;

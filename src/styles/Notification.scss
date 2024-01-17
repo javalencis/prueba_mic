@@ -1,0 +1,39 @@
+@use './variables' as var;
+.Notification{
+    
+    width: 288px;
+    height: 56px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom:30px;
+    margin-left: 30px;
+    background-color: var.$primary-color;
+    color: #ffffff;
+    padding:20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+
+    &.visible{
+        transform: translate3d(0,0,0);
+        pointer-events: auto;
+     
+    }
+    &.hidden{
+        transform: translate3d(0,200%,0);
+        pointer-events: none;
+  
+    }
+
+    span{
+        width: 20px;
+        font-size: 18px;
+        padding: 0 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+}
