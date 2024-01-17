@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import '../styles/ProductDetails.scss'
 import { InfoToggle } from './InfoToggle'
+import { currencyFormat } from '../helpers/functions'
 export const ProductDetails = ({ product, openModal }) => {
     const [selectedSize, setSelectedSize] = useState(0)
     const [selectedAmount, setSelectedAmount] = useState(product.sizes[0].amount)
@@ -76,10 +77,11 @@ export const ProductDetails = ({ product, openModal }) => {
                             ?
                             <>
                                 <p>{product.discountRate}</p>
-                                <p>{product.price}</p>
+                                <p>{currencyFormat(product.price)}</p>
                             </>
                             :
-                            <p>{product.price}</p>
+                            <p>{currencyFormat(product.price)}</p>
+
                     }
                 </div>
 

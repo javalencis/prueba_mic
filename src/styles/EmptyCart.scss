@@ -1,0 +1,15 @@
+.EmptyCart{
+    width: 100%;
+    text-align: center;
+    p{
+        color: #3f3f40;
+        font-weight: 700;
+        margin-top: 16px;
+        letter-spacing: 0.05em;
+    }
+    img{
+        width: 80px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
