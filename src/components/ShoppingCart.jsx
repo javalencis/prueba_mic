@@ -5,13 +5,13 @@ import { getSubtotalCart, getTotalCart } from '../helpers/functions';
 import { EmptyCart } from './EmptyCart';
 import { CardProduct } from './CardProduct';
 export const ShoppingCart = () => {
-    const {openShoppingCart,setOpenShoppingCart,shoppingCart} = useContext(AppContext);
-    const handleOpenShoppingCart = () =>{
-        setOpenShoppingCart(v=>!v)
+    const { openShoppingCart, setOpenShoppingCart, shoppingCart } = useContext(AppContext);
+    const handleOpenShoppingCart = () => {
+        setOpenShoppingCart(v => !v)
     }
     return (
         <>
-            <div className={openShoppingCart? 'ShoppingCart expanded':'ShoppingCart collapsed'}>
+            <div className={openShoppingCart ? 'ShoppingCart expanded' : 'ShoppingCart collapsed'}>
                 <div className="sc-top">
                     <p>MI BOLSA DE COMPRAS</p>
                     <button onClick={handleOpenShoppingCart}>

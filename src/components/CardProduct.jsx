@@ -21,12 +21,35 @@ export const CardProduct = ({ id, item }) => {
 
     }
     const addAmount = () => {
-        setSelectedAmount(c => c < 20? c + 1 : c)
+        setSelectedAmount(c => c < item.max_amount? c + 1 : c)
     }
     const handleDeleteItem = () => {
         const newCart = [...shoppingCart]
         newCart.splice(id, 1)
         setShoppingCart(newCart)
+    }
+    const handleChangeAmount = (e) => {
+        let value = (e.target.value)
+
+        if (/^\d*$/.test(value)) {
+            value = (Number(value))
+            if (value < 1) {
+                setSelectedAmount('')
+            } else if (value >= item.max_amount) {
+                setSelectedAmount(item.max_amount)
+            } else {
+                setSelectedAmount(value)
+            }
+        } else {
+            setSelectedAmount('')
+        }
+        // const value  = Number(e.target.value)
+
+    }
+    const handleBlurInput = () =>{
+        if(selectedAmount == ''){
+            setSelectedAmount(1)
+        }
     }
     return (
         <div className="CardProduct">
@@ -49,7 +72,12 @@ export const CardProduct = ({ id, item }) => {
                         <button className='bt-input--sub' onClick={subAmount}>
                             -
                         </button>
-                        <input type="text" value={selectedAmount} />
+                        <input 
+                            type="text" 
+                            value={selectedAmount} 
+                            onChange={handleChangeAmount}
+                            onBlur={handleBlurInput}
+                            />
                         <button className='bt-input--add' onClick={addAmount}>
                             +
                         </button>

@@ -3,9 +3,10 @@ import iconHeart from '../assets/icons/heart-icon.svg'
 import '../styles/Elements.scss'
 import { AppContext } from '../context/AppCOntext'
 export const Elements = () => {
-    const {setOpenShoppingCart} = useContext(AppContext)
-    const handleOpenShoppingCart = () =>{
-        setOpenShoppingCart(v=>!v)
+    const {shoppingCart, setOpenShoppingCart } = useContext(AppContext)
+
+    const handleOpenShoppingCart = () => {
+        setOpenShoppingCart(v => !v)
     }
     return (
         <div className='Elements'>
@@ -19,7 +20,16 @@ export const Elements = () => {
 
                 </li>
                 <li><img src="https://moviesshopco.vtexassets.com/arquivos/map-locator-2.svg" alt="" /></li>
-                <li onClick={handleOpenShoppingCart}><img src="https://moviesshopco.vtexassets.com/assets/vtex/assets-builder/moviesshopco.theme3/3.0.160/shopping___eba0ed4ccfbadce9d287241eabeed60f.svg" alt="" /></li>
+                <li className='btCart' onClick={handleOpenShoppingCart} >
+                    <img src="https://moviesshopco.vtexassets.com/assets/vtex/assets-builder/moviesshopco.theme3/3.0.160/shopping___eba0ed4ccfbadce9d287241eabeed60f.svg" alt="" />
+                    {
+                        shoppingCart.length > 0 ?
+                         <span>{shoppingCart.length}</span>
+                        
+                        :
+                        ''
+                    }
+                </li>
 
             </ul>
         </div>

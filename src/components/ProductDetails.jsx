@@ -11,7 +11,7 @@ export const ProductDetails = ({ product, openModal }) => {
     const [isActive, setIsActive] = useState(false)
     const [amount, setAmount] = useState(1)
     const [warning, setWarning] = useState(false)
-    console.log(warning)
+
 
     const handleSelectedSize = (e) => {
         const index = parseInt(e.target.id)
@@ -68,6 +68,8 @@ export const ProductDetails = ({ product, openModal }) => {
         if (isActive) {
             const newItem = {
                 reference: product.id + '-' + product.sizes[selectedSize].size,
+                size:product.sizes[selectedSize].size,
+                max_amount:product.sizes[selectedSize].amount,
                 amount,
                 product
 
