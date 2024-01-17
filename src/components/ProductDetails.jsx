@@ -3,12 +3,15 @@ import '../styles/ProductDetails.scss'
 import { InfoToggle } from './InfoToggle'
 import { addItemCart, currencyFormat } from '../helpers/functions'
 import { AppContext } from '../context/AppCOntext'
+import { Warning } from './Warning'
 export const ProductDetails = ({ product, openModal }) => {
-    const {setShoppingCart,addedItem,setAddedItem} = useContext(AppContext)
+    const { setShoppingCart, addedItem, setAddedItem } = useContext(AppContext)
     const [selectedSize, setSelectedSize] = useState(0)
     const [selectedAmount, setSelectedAmount] = useState(product.sizes[0].amount)
     const [isActive, setIsActive] = useState(false)
     const [amount, setAmount] = useState(1)
+    const [warning, setWarning] = useState(false)
+    console.log(warning)
 
     const handleSelectedSize = (e) => {
         const index = parseInt(e.target.id)
@@ -61,19 +64,24 @@ export const ProductDetails = ({ product, openModal }) => {
         setAmount(c => c < selectedAmount ? c + 1 : c)
     }
 
-    const handleAddItem = () =>{
-        if(isActive){
+    const handleAddItem = () => {
+        if (isActive) {
             const newItem = {
-                reference:product.id +'-'+product.sizes[selectedSize].size,
+                reference: product.id + '-' + product.sizes[selectedSize].size,
                 amount,
                 product
 
             }
-            
-            setShoppingCart(cart => addItemCart(cart,newItem))
-            if(!addedItem){
+
+            setShoppingCart(cart => addItemCart(cart, newItem))
+            setWarning(false)
+            if (!addedItem) {
                 setAddedItem(true)
+
             }
+
+        } else {
+            setWarning(true)
         }
     }
 
@@ -136,9 +144,17 @@ export const ProductDetails = ({ product, openModal }) => {
                         />
                         <button onClick={addAmount}> + </button>
                     </div>
-                    <button className='bt-addCart' onClick={handleAddItem}>
-                        AGREGAR A MI BOLSA
-                    </button>
+                    <div className='pd-bt-addcart'>
+                        <button className='bt-addCart' onClick={handleAddItem}>
+                            AGREGAR A MI BOLSA
+                            
+                        </button>
+                        {
+                                warning && (
+                                    <Warning setWarning={setWarning} />
+                                )
+                            }
+                    </div>
                 </div>
                 <div className='pd-toggle'>
                     <InfoToggle title={'Descripción de producto'}>

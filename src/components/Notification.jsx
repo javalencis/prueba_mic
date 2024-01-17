@@ -6,11 +6,9 @@ export const Notification = () => {
 
     useEffect(() => {
         if(addedItem){
-            const timeoutId = setTimeout(() => {
+            setTimeout(() => {
                 setAddedItem(false);
-            }, 5000);
-
-            return () => clearTimeout(timeoutId);
+            }, 4000);        
         }
 
     }, [addedItem])
