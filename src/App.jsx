@@ -6,10 +6,10 @@ import { Product } from './components/Product'
 import { ShoppingCart } from './components/ShoppingCart'
 import { Notification } from './components/Notification'
 import { AppContext } from './context/AppCOntext'
+import { Footer } from './components/Footer'
 
 
 function App() {
-  const { addedItem } = useContext(AppContext)
 
   return (
     <>
@@ -18,9 +18,8 @@ function App() {
       <ShoppingCart />
       <SideLeftNav />
       <SideLeftNavWomen />
-  
       <Notification />
-      
+      <Footer/>
     </>
   )
 }
