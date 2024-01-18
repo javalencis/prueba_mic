@@ -11,7 +11,10 @@ export const Product = () => {
   return (
     <section className="Product">
         <div className="ProductLeft">
-            <ProductGallery/>
+        <p className="ProductRoute">Movies / Hombre / Chaquetas y Buzos /<span> Chaqueta de la Nasa multicolor con cierre para hombre</span></p>
+            <ProductGallery 
+              images={product.images} 
+              thumbnailImage={product.thumbnailImage}/>
         </div>
         <ProductDetails product={product} openModal={setIsOpenModal}/>
         {isOpenModal && (

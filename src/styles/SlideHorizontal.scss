@@ -1,0 +1,57 @@
+.SlideHorizontal {
+    width: 100%;
+    max-width: 600px;
+    max-height: 600px;
+    overflow: hidden;
+    position: relative;
+    .SlideContainer {
+   
+       
+        .ImageContainer {
+            display: flex;
+            height: auto;
+            font-size: 0;
+            
+            z-index: 1;
+            img {
+                width: 100%;
+                transition: transform 0.3s ease-in-out;
+                max-height: 600px;
+                object-fit: contain;
+                cursor: url('https://moviesshopco.vtexassets.com/_v/public/assets/v1/published/moviesshopco.store-components@3.162.4/public/react/91618bbaeb77d5f5b0173112a38a893e.svg'),auto;
+                &:hover{
+                     transform: scale(1.8);
+                } 
+
+
+            }
+        }
+
+    }
+    button {
+        top: 50%;
+        position: absolute;
+        width: 50px;
+        height: 100px;
+        cursor: pointer;
+        background-color: transparent;
+        color: #0f3e99;
+        font-size: 34px;
+        font-weight: 700;
+        transform: translateY(-50%);
+        border: none;
+        z-index: 2;
+        
+        
+    }
+
+    button:first-child {
+        left: 0px;
+
+    }
+
+    button:last-child {
+
+        right: 0px;
+    }
+}
