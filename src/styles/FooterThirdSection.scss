@@ -1,0 +1,122 @@
+@use './variables' as var;
+@use './media-queries' as media;
+
+.FooterThirdSection {
+    width: 100%;
+    max-width: 1089px;
+
+    .fts-img {
+        width: 100%;
+        text-align: center;
+
+        img {
+            vertical-align: middle;
+            filter: grayscale(1);
+            max-height: 35px;
+            max-width: 90%;
+        }
+    }
+
+    .fts-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 25px;
+        border-top: 1px solid #000;
+        padding-top: 30px;
+
+        h4 {
+            color: var.$primary-color;
+            font-size: 13px;
+            margin-bottom: 14px;
+        }
+
+        .top {
+            padding-right: 40px;
+            flex-grow: 1;
+
+            .networks {
+                img {
+                    width: 24px;
+                    margin-right: 16px;
+                }
+            }
+
+            .contact {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                color: #898e94;
+                font-size: 13px;
+                margin-bottom: 16px;
+
+                img {
+                    width: 20px;
+                    margin-right: 12px;
+
+                }
+
+                &.map {
+                    color: var.$primary-color;
+                    font-size: 14px;
+                    font-weight: 500;
+
+                    img {
+                        width: 24px;
+                    }
+                }
+            }
+        }
+
+        .mid,
+        .bottom {
+            display: flex;
+            justify-content: space-around;
+            text-align: left;
+            flex-wrap: wrap;
+            flex-grow: 1;
+
+            a {
+                text-decoration: none;
+                color: #898e94;
+                display: block;
+                font-size: 14px;
+                margin-bottom: 5px;
+
+            }
+
+            &>div {
+
+                padding-right: 40px;
+            }
+        }
+
+        @include media.tablet {
+
+            .mid,
+            .bottom {
+                justify-content:center;
+                padding-left: 20px;
+                &>div {
+                    min-width: 168px;
+                    padding-right: 0;
+                    
+                    margin-bottom: 30px;
+                }
+            }
+            .bottom{
+
+                flex-direction: column;
+                justify-content: flex-start;
+            }
+            
+          
+        }
+
+    }
+}
+
+@include media.tablet{
+    .FooterThirdSection{
+        padding: 0 20px;
+    }
+}
