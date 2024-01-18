@@ -1,5 +1,5 @@
 @use './variables' as var;
-
+@use './media-queries' as media;
 .ProductDetails {
     width: 100%;
     padding: 0 12px;
@@ -85,7 +85,7 @@
                     color: #ffffff;
                 }
             }
-
+           
             .guide {
                 background: none;
                 border: none;
@@ -93,12 +93,34 @@
                 font-size: 12px;
                 cursor: pointer;
             }
+           
         }
-
+        @include media.tablet{
+            .pd-sizes-guide{
+                .sizes{
+                    justify-content: flex-start;
+                    padding-right: 10px;
+                 
+                }
+                .guide{
+                    text-wrap: nowrap;
+                }
+            }
+            
+        }
+        @include media.mobile{
+            .pd-sizes-guide{
+                flex-direction: column; 
+                gap: 24px;
+                .guide{
+                    text-align:left;
+                }
+            }
+        }
         .pd-amount-add {
             display: flex;
             justify-content: left;
-            gap: 16px;
+            gap: 1rem;
 
             .amount {
                 border-bottom: 1px solid #bdbdbd;
@@ -157,6 +179,24 @@
                     font-weight: 600;
                     letter-spacing: .05em;
                     cursor: pointer;
+                }
+            }
+
+            @include media.tablet{
+                .pd-bt-addcart{
+                    flex-grow: 1;
+                    .bt-addCart {
+                        width: 100%;
+
+                    }
+                }
+            }
+            @include media.mobile{
+                .pd-bt-addcart{
+                    .bt-addCart{
+                        width: 180px;
+                        padding: 0 10px;
+                    }
                 }
             }
         }
@@ -227,5 +267,22 @@
             }
         }
 
+    }
+}
+
+@include media.tablet{
+    .ProductDetails{
+        padding: 0 5px;
+    }
+}
+
+@include media.mobile{
+    .ProductDetails{
+        margin-top: 32px;
+        padding: 0 20px;
+        .pd-container{
+            width: 100%;
+            max-width: 100%;
+        }
     }
 }
