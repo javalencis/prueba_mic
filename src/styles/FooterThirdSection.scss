@@ -4,7 +4,7 @@
 .FooterThirdSection {
     width: 100%;
     max-width: 1089px;
-
+   
     .fts-img {
         width: 100%;
         text-align: center;
@@ -52,9 +52,11 @@
                 img {
                     width: 20px;
                     margin-right: 12px;
-
+                   
                 }
-
+                .phone{
+                    transform: rotate(180deg);
+                }
                 &.map {
                     color: var.$primary-color;
                     font-size: 14px;
@@ -74,7 +76,10 @@
             text-align: left;
             flex-wrap: wrap;
             flex-grow: 1;
-
+            cursor: pointer;
+            img{
+                display: none;
+            }
             a {
                 text-decoration: none;
                 color: #898e94;
@@ -112,6 +117,49 @@
           
         }
 
+       
+
+    }
+    @include media.mobile {
+         .fts-info{
+          
+            flex-wrap: wrap;
+            .top{
+                width: 100%;
+                margin-bottom: 30px;
+            }
+            .mid,
+            .bottom{
+                width: 100%;
+                flex-direction: column;
+                padding: 0;
+                .title {
+                    display: flex;
+                    justify-content: space-between;
+                    font-weight: 300;
+                    font-size: 14px;
+
+                   img{
+                    display: block;
+                    width: 17px;
+                    height: 16px;
+                    transform: rotate(180deg);
+                   }
+                   .expanded{
+                    transform: rotate(0deg);
+
+                   }
+                }
+                .info{
+                    &.collapse{
+                        display: none;
+                    }
+                    &.expanded{
+                        display: block;
+                    }
+                }
+            }
+         }   
     }
 }
 

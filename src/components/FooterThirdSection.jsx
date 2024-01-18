@@ -4,10 +4,15 @@ import iEmail from '../assets/icons/email.png'
 import iPhone from '../assets/icons/phone.png'
 import iMap from '../assets/icons/mapblack.png'
 import imgPay from '../assets/imgs/medios-de-pago-mic-footer.png'
+import iconArrow from '../assets/icons/arrow.png'
 
 import '../styles/FooterThirdSection.scss'
+import { useEffect, useState } from 'react'
+import { ToggleFooter } from './ToggleFooter'
 
 export const FooterThirdSection = () => {
+
+
     return (
         <section className="FooterThirdSection">
             <div className="fts-img">
@@ -30,7 +35,7 @@ export const FooterThirdSection = () => {
                         <p>servicioalcliente@moviessshop.co</p>
                     </div>
                     <div className='contact'>
-                        <img src={iPhone}alt="" />
+                        <img src={iPhone} alt="" className='phone'/>
                         <p>+57 300910 8311</p>
                     </div>
                     <div className='contact map'>
@@ -39,54 +44,36 @@ export const FooterThirdSection = () => {
                     </div>
                 </div>
                 <div className="mid">
-                    <div>
-                        <h4>
-                            TE AYUDAMOS
-                        </h4>
-                        <div>
-                            <a href="">Preguntas frecuentes</a>
-                            <a href="">Garantía de productos</a>
-                            <a href="">Cambios y devoluciones</a>
-                            <a href="">Contáctanos</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>
-                            INFORMACIÓN LEGAL
-                        </h4>
-                        <div>
-                            <a href="">Términos y condiciones</a>
-                            <a href="">Términos y condiciones <br /> recoge en tienda física</a>
-                            <a href="">Modificar mi suscripción</a>
-                            <a href="">Políticas de privacidad</a>
-                            <a href="">Legales Campañas</a>
-                            <a href="">Políticas de devoluciones</a>
-                            <a href="">Superintendencia Industria <br /> y Comercio - SIC</a>
-                            <a href="">Autorización tratamiento de<br /> datos</a>
-                            <a href="">Transparencia y Ética</a>
-                            <a href="">Empresarial</a>
-                        </div>
-                    </div>
+                    <ToggleFooter title="TE AYUDAMOS">
+                        <a href="">Preguntas frecuentes</a>
+                        <a href="">Garantía de productos</a>
+                        <a href="">Cambios y devoluciones</a>
+                        <a href="">Contáctanos</a>
+                    </ToggleFooter>
+                    <ToggleFooter title="INFORMACIÓN LEGAL">
+                        <a href="">Términos y condiciones</a>
+                        <a href="">Términos y condiciones <br /> recoge en tienda física</a>
+                        <a href="">Modificar mi suscripción</a>
+                        <a href="">Políticas de privacidad</a>
+                        <a href="">Legales Campañas</a>
+                        <a href="">Políticas de devoluciones</a>
+                        <a href="">Superintendencia Industria <br /> y Comercio - SIC</a>
+                        <a href="">Autorización tratamiento de<br /> datos</a>
+                        <a href="">Transparencia y Ética</a>
+                        <a href="">Empresarial</a>
+                    </ToggleFooter>
+
                 </div>
                 <div className="bottom">
-                    <div>
-                        <h4>
-                            MI CUENTA
-                        </h4>
-                        <div>
-                            <a href="">Iniciar sesión</a>
-                            <a href="">Rastrea pedido</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4>
-                            ACERCA DE MOVIES
-                        </h4>
-                        <div>
-                            <a href="">Nuestra historia</a>
-                            <a href="">Trabaja con nosotros</a>
-                        </div>
-                    </div>
+                    <ToggleFooter title="MI CUENTA">
+                        <a href="">Iniciar sesión</a>
+                        <a href="">Rastrea pedido</a>
+                    </ToggleFooter>
+                    <ToggleFooter title="ACERCA DE MOVIES">
+                        <a href="">Nuestra historia</a>
+                        <a href="">Trabaja con nosotros</a>
+                    </ToggleFooter>
+                    
                 </div>
             </div>
         </section>
