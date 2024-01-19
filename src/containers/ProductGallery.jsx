@@ -1,8 +1,8 @@
-import { SlideHorizontal } from "./SlideHorizontal"
+import { SlideHorizontal } from "../components/SlideHorizontal"
 import '../styles/ProductGallery.scss'
-import { SlideSmall } from "./SlideSmall"
+import { SlideSmall } from "../components/SlideSmall"
 import { useState } from "react"
-import { ListDots } from "./ListDots"
+import { ListDots } from "../components/ListDots"
 export const ProductGallery = ({ images,thumbnailImage }) => {
     const [imgClicked, setImgClicked] = useState(0)
     const [imgCurrent, setImgCurrent] = useState(0)

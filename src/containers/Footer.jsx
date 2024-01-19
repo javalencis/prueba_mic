@@ -1,7 +1,7 @@
-import { FooterFirstSection } from "./FooterFirstSection"
+import { FooterFirstSection } from "../components/FooterFirstSection"
 import '../styles/Footer.scss'
-import { FooterSecondSection } from "./FooterSecondSection"
-import { FooterThirdSection } from "./FooterThirdSection"
+import { FooterSecondSection } from "../components/FooterSecondSection"
+import { FooterThirdSection } from "../components/FooterThirdSection"
 export const Footer = () => {
     return (
         <footer className="Footer">

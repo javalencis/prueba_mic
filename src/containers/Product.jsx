@@ -1,10 +1,10 @@
-import { ProductDetails } from "./ProductDetails"
+import { ProductDetails } from "../components/ProductDetails"
 import { ProductGallery } from "./ProductGallery"
 import product from "../data/product"
 import '../styles/Product.scss'
 import { useState } from "react"
-import { LayoutModal } from "../containers/LayoutModal"
-import { ModalGuideSizes } from "./ModalGuideSizes"
+import { LayoutModal } from "./LayoutModal"
+import { ModalGuideSizes } from "../components/ModalGuideSizes"
 export const Product = () => {
   const [isOpenModal, setIsOpenModal] = useState(false)
 

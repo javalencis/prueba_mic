@@ -2,8 +2,8 @@ import { useContext } from 'react'
 import '../styles/ShoppingCart.scss'
 import { AppContext } from '../context/AppCOntext'
 import { getSubtotalCart, getTotalCart } from '../helpers/functions';
-import { EmptyCart } from './EmptyCart';
-import { CardProduct } from './CardProduct';
+import { EmptyCart } from '../components/EmptyCart';
+import { CardProduct } from '../components/CardProduct';
 export const ShoppingCart = () => {
     const { openShoppingCart, setOpenShoppingCart, shoppingCart } = useContext(AppContext);
     const handleOpenShoppingCart = () => {
