@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import '../styles/ProductDetails.scss'
 import { InfoToggle } from './InfoToggle'
-import { addItemCart, currencyFormat } from '../helpers/functions'
+import { addItemCart, currencyFormat, priceWithDiscount } from '../helpers/functions'
 import { AppContext } from '../context/AppCOntext'
 import { Warning } from './Warning'
 export const ProductDetails = ({ product, openModal }) => {
@@ -68,8 +68,8 @@ export const ProductDetails = ({ product, openModal }) => {
         if (isActive) {
             const newItem = {
                 reference: product.id + '-' + product.sizes[selectedSize].size,
-                size:product.sizes[selectedSize].size,
-                max_amount:product.sizes[selectedSize].amount,
+                size: product.sizes[selectedSize].size,
+                max_amount: product.sizes[selectedSize].amount,
                 amount,
                 product
 
@@ -94,20 +94,26 @@ export const ProductDetails = ({ product, openModal }) => {
                 <h1>
                     {product.title}
                 </h1>
-                <div className='pd-subtitle-ref'>
-                    <p className='subtitle'>{product.subtitle}</p>
-                    <p className='ref'>Ref. {product.id}-{product.sizes[selectedSize].size}</p>
+                <div className='pd-subref-new'>
+                    <div className='pd-subtitle-ref'>
+                        <p className='subtitle'>{product.subtitle}</p>
+                        <p className='ref'>Ref. {product.id}-{product.sizes[selectedSize].size}</p>
+                    </div>
+                    {product.isNew && (
+                        <img src="https://moviesshopco.vtexassets.com/assets/vtex.file-manager-graphql/images/33810ef9-62e0-44c1-b4ee-fed6620479d7___a2489eb5c598b17e108aab4e09852450.png" alt="" />
+
+                    )}
                 </div>
                 <div className='pd-price'>
                     {
-                        product.discountRate
+                        product.discountRate > 0
                             ?
                             <>
-                                <p>{product.discountRate}</p>
-                                <p>{currencyFormat(product.price)}</p>
+                                <p className='pd-price--before'>{currencyFormat(product.price)}</p>
+                                <p className='pd-price--now'>{currencyFormat(priceWithDiscount(product.price,product.discountRate))}</p>
                             </>
                             :
-                            <p>{currencyFormat(product.price)}</p>
+                            <p className='pd-price--now'>{currencyFormat(product.price)}</p>
 
                     }
                 </div>
@@ -149,13 +155,13 @@ export const ProductDetails = ({ product, openModal }) => {
                     <div className='pd-bt-addcart'>
                         <button className='bt-addCart' onClick={handleAddItem}>
                             AGREGAR A MI BOLSA
-                            
+
                         </button>
                         {
-                                warning && (
-                                    <Warning setWarning={setWarning} />
-                                )
-                            }
+                            warning && (
+                                <Warning setWarning={setWarning} />
+                            )
+                        }
                     </div>
                 </div>
                 <div className='pd-toggle'>

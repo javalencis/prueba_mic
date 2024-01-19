@@ -3,6 +3,7 @@ const product = {
     title: "CHAQUETA DE LA NASA MULTICOLOR CON CIERRE PARA HOMBRE",
     subtitle: "NASA",
     price: 249990,
+    isNew:true,
     discountRate: null,
     sizes: [{ size: "S", amount: 6 }, { size: "M", amount: 3 }, { size: "L", amount: 5 }, { size: "XL", amount: 5 }],
     amount: 14,
