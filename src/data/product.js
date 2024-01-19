@@ -14,7 +14,8 @@ const product = {
         'https://moviesshopco.vtexassets.com/arquivos/ids/175527-800-800?v=638343813918430000&width=800&height=800&aspect=true',
         'https://moviesshopco.vtexassets.com/arquivos/ids/175528-800-800?v=638343814091100000&width=800&height=800&aspect=true',
         'https://moviesshopco.vtexassets.com/arquivos/ids/175530-800-800?v=638343814525630000&width=800&height=800&aspect=true',
-        'https://moviesshopco.vtexassets.com/arquivos/ids/175614-800-800?v=638349695150300000&width=800&height=800&aspect=true'
+        'https://moviesshopco.vtexassets.com/arquivos/ids/175614-800-800?v=638349695150300000&width=800&height=800&aspect=true',
+        
     ],
     thumbnailImage:[
         'https://moviesshopco.vtexassets.com/arquivos/ids/175525-300-auto?v=638343813380430000&width=300&height=auto&aspect=true',

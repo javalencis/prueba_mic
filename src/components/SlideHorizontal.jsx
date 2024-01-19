@@ -38,7 +38,7 @@ export const SlideHorizontal = ({ images, imgClicked, imgCurrent, setImgCurrent 
         setTimeT(0)
 
     }
-
+    
     const mouseUp = (e) => {
         setIsDragStart(false)
         let posDiff
@@ -83,7 +83,7 @@ export const SlideHorizontal = ({ images, imgClicked, imgCurrent, setImgCurrent 
                 setImgCurrent(x => x > 0 ? x - 1 : 1)
             }
         } else {
-            if(imgCurrent !== images.length - 1){
+            if (imgCurrent !== images.length - 1) {
 
                 setPosX(-(imgCurrent + 1) * imgWidth)
                 setImgCurrent(x => x < images.length - 1 ? x + 1 : x)
@@ -116,6 +116,7 @@ export const SlideHorizontal = ({ images, imgClicked, imgCurrent, setImgCurrent 
                 onMouseMove={mouseMove}
                 onPointerDown={mouseDown}
                 onTouchMove={mouseMove}
+  
 
             >
 
@@ -149,7 +150,7 @@ export const SlideHorizontal = ({ images, imgClicked, imgCurrent, setImgCurrent 
                 id='right'
                 onClick={handleBackNextImg}
                 style={{
-                    color: imgCurrent === images.length - 1 && "#979899" 
+                    color: imgCurrent === images.length - 1 && "#979899"
                 }}
             >{'>'}</button>
 

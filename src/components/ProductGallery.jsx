@@ -12,6 +12,7 @@ export const ProductGallery = ({ images,thumbnailImage }) => {
             <SlideSmall 
                 images={thumbnailImage} 
                 setImgClicked={setImgClicked}
+              
             />
             <SlideHorizontal 
                 images={images} 

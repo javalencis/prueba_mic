@@ -4,9 +4,10 @@
     max-height: 600px;
     overflow: hidden;
     position: relative;
+    margin: 0 8px;
     .SlideContainer {
    
-       
+     
         .ImageContainer {
             display: flex;
             height: auto;
@@ -40,7 +41,7 @@
         font-weight: 700;
         transform: translateY(-50%);
         border: none;
-        z-index: 2;
+        z-index: 1;
         
         
     }
