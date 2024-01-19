@@ -15,16 +15,16 @@ export const SlideSmall = ({ images, setImgClicked }) => {
 
         if (e.target.id === 'top') {
 
-            setPosX(-(positions - 3) * imgH)
-            setPosY(-(positions - 3) * imgH)
-            setPositions(x => x > 0 ? x - 3 : 3)
+            setPosX(-(positions - 2) * imgH)
+            setPosY(-(positions - 2) * imgH)
+            setPositions(x => x > 0 ? x - 2 : 2)
 
 
         } else {
 
-            setPosX(-(positions + 3) * imgH)
-            setPosY(-(positions + 3) * imgH)
-            setPositions(x => x < images.length ? x + 3 : x)
+            setPosX(-(positions + 2) * imgH)
+            setPosY(-(positions + 2) * imgH)
+            setPositions(x => x < images.length ? x + 2 : x)
 
 
         }
@@ -65,7 +65,7 @@ export const SlideSmall = ({ images, setImgClicked }) => {
                 id="bottom"
                 onClick={handleTopBottom}
                 style={{
-                    display: positions >= images.length - 2 ? "none" : "block"
+                    display: positions >= images.length-5 ? "none" : "block"
                 }}
             >
                 <span>
